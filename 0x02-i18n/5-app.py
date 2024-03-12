@@ -43,8 +43,8 @@ def before_request():
     """
     Set the current user before each request
     """
-    user = get_user()
-    g.user = user
+    user_id = request.args.get('login_as')
+    g.user = get_user(user_id)
 
 
 @babel.localeselector
