@@ -3,19 +3,17 @@
 from flask import Flask, render_template
 from flask_babel import Babel
 
-app = Flask(__name__)
-
-# Config class for setting up available languages and default locale/timezone
-
 
 class Config:
+    """Config class for setting up available languages
+    and default locale/timezone"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
-# Instantiate Babel object
 
-
+app = Flask(__name__)
+app.config.from_object(Config)
 babel = Babel(app)
 
 
@@ -31,5 +29,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.config.from_object(Config)
     app.run(port="5000", host="0.0.0.0", debug=True)
