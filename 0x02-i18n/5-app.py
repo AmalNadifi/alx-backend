@@ -32,9 +32,9 @@ def get_user(user_id):
     """
     Get user details based on user ID
     """
-    user_id = request.args.get('login_as', None)
-    if user_id is not None and int(user_id) in user.keys():
-        return users.get(int(user_id))
+    u_id = request.args.get('login_as', None)
+    if u_id is not None and int(u_id) in users.keys():
+        return users.get(int(u_id))
     return None
 
 
